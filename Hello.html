@@ -1,0 +1,89 @@
+﻿﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Hello</title>
+
+<style type="text/css">
+@font-face {
+	font-family: digit;
+	src: url('digital-7_mono.ttf') format("truetype");
+}
+</style>
+
+<link href="css/default.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery.js"></script>
+<!--<script type="text/javascript" src="js/garden.js"></script>-->
+<script type="text/javascript" src="js/functions.js"></script>
+
+</head>
+
+<body>
+
+<div id="mainDiv">
+	<div id="content">
+		<div id="code">
+            <span class="space"/><span class="comments">命运给了你一个较低的起点，是想告诉你，让你用你的一生去奋斗出一个绝地反击的故事，这个故事不是一个水到渠成的童话，没有一点点人间疾苦，这个故事是：“有志者，事竟成，破釜成舟，百日秦关终属楚”；这个故事是：“苦心人，天不负，卧薪尝胆，三千越甲可吞吴”</span><br />
+		</div>
+		<div id="loveHeart">
+			<canvas id="garden"></canvas>
+			<!--<div id="words">
+				<div id="messages">
+					。。。
+					<div id="elapseClock"></div>
+				</div>
+				<div id="loveu">
+					。。。。<br/>
+					<div class="signature">- begin</div>
+				</div>
+			</div>-->
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+    var offsetX = $("#loveHeart").width() / 2;
+    var offsetY = $("#loveHeart").height() / 2 - 55;
+    var together = new Date();
+    together.setFullYear(2013, 5, 28);
+    together.setHours(20);
+    together.setMinutes(0);
+    together.setSeconds(0);
+    together.setMilliseconds(0);
+
+    if (!document.createElement('canvas').getContext) {
+        var msg = document.createElement("div");
+        msg.id = "errorMsg";
+        msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+";
+        document.body.appendChild(msg);
+        $("#code").css("display", "none")
+        $("#copyright").css("position", "absolute");
+        $("#copyright").css("bottom", "10px");
+        document.execCommand("stop");
+    } else {
+        //setTimeout(function () {
+        //    startHeartAnimation();
+        //}, 5000);
+
+        timeElapse(together);
+        setInterval(function () {
+            timeElapse(together);
+        }, 500);
+
+        adjustCodePosition();
+        $("#code").typewriter();
+    }
+    //
+    setInterval(function () {
+        $("#code").html('其实，我想说的是：再见..');
+    }, 25000);
+    //网页跳转
+    setInterval(function () {
+        location.replace('http://www.began.top/');
+    }, 30000);
+   
+</script>
+<div style="text-align:center;clear:both">
+</div>
+</body>
+</html>
+
